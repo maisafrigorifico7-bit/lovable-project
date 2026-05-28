@@ -1,0 +1,301 @@
+/* ========================================
+   Pedidos MaisaPig - Estilos
+   ======================================== */
+
+:root {
+  --primary: #dc2626;
+  --primary-light: #fecaca;
+  --secondary: #ea580c;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --bg: #fef2f2;
+  --border: #fecdd3;
+  --text: #7f1d1d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f9fafb;
+  color: var(--text);
+}
+
+html, body {
+  height: 100%;
+}
+
+/* ========== CARDS DE PEDIDOS ========== */
+.card-pedido {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.card-pedido:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+}
+
+.card-pedido.pendente {
+  border-left: 4px solid var(--danger);
+}
+
+.card-pedido.pesado {
+  border-left: 4px solid var(--warning);
+}
+
+.card-pedido.nota {
+  border-left: 4px solid var(--secondary);
+}
+
+.card-pedido.enviado {
+  border-left: 4px solid var(--success);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.status-badge {
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.card-body {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #5a1a1a;
+}
+
+.card-body p {
+  margin: 4px 0;
+}
+
+.data-criacao {
+  font-size: 11px;
+  color: #a0475a;
+  margin-top: 8px;
+}
+
+.pago {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.card-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.card-actions button:hover {
+  background: #e5e7eb;
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background: #fee2e2 !important;
+  color: var(--danger) !important;
+  margin-left: auto;
+}
+
+.btn-delete:hover {
+  background: #fecaca !important;
+}
+
+/* ========== MODAL DE PAGAMENTO ========== */
+.modal-pagamento {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-conteudo {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-conteudo h2 {
+  color: var(--text);
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.modal-conteudo p {
+  color: #6b4a4a;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.pedido-info {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.pedido-info strong {
+  color: var(--text);
+}
+
+.modal-conteudo button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-conteudo button:first-of-type {
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  color: white;
+}
+
+.modal-conteudo button:first-of-type:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.modal-conteudo button:nth-of-type(2) {
+  background: linear-gradient(135deg, #f59e0b, #ec4899);
+  color: white;
+}
+
+.modal-conteudo button:nth-of-type(2):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.modal-conteudo button:last-of-type {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.modal-conteudo button:last-of-type:hover {
+  background: #d1d5db;
+}
+
+/* ========== CONTAINERS ========== */
+.vazio {
+  text-align: center;
+  padding: 40px;
+  color: #a0475a;
+  font-size: 16px;
+}
+
+#pedidos-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .card-actions button {
+    width: 100%;
+  }
+
+  .btn-delete {
+    margin-left: 0 !important;
+    margin-top: 8px;
+  }
+
+  .modal-conteudo {
+    padding: 24px;
+  }
+}
+
+/* ========== ANIMAÇÕES ========== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}

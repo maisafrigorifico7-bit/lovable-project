@@ -1,232 +1,412 @@
 <!DOCTYPE html>
-<!-- saved from url=(0041)https://elevate-and-brighten.lovable.app/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./Pedidos MaisaPig — Cole e organize_files/styles-V6-xVVVy.css" data-precedence="default"><title>Pedidos MaisaPig — Cole e organize</title><meta name="author" content="Lovable"><meta property="og:title" content="Lovable App"><meta property="og:description" content="Professional Refresh enhances images and designs for professional use and print."><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@Lovable"><meta name="twitter:title" content="Lovable App"><meta name="twitter:description" content="Professional Refresh enhances images and designs for professional use and print."><meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d197e929-c267-4fb3-8271-58247f5cf098/id-preview-c41e6cb5--f65a7da0-e121-41a9-842a-e55854f1971a.lovable.app-1778513629002.png"><meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d197e929-c267-4fb3-8271-58247f5cf098/id-preview-c41e6cb5--f65a7da0-e121-41a9-842a-e55854f1971a.lovable.app-1778513629002.png"><meta name="description" content="Cole os pedidos do WhatsApp e organize em cartões."><link rel="modulepreload" href="https://elevate-and-brighten.lovable.app/assets/index-zkwhlaA-.js"><link rel="modulepreload" href="https://elevate-and-brighten.lovable.app/assets/index-LMm3aLqY.js"><link rel="manifest" href="https://elevate-and-brighten.lovable.app/manifest.webmanifest"><link rel="icon" href="https://elevate-and-brighten.lovable.app/icon-512.png" type="image/png"><link rel="apple-touch-icon" href="https://elevate-and-brighten.lovable.app/icon-512.png">
-<style>
-	@font-face {
-		font-family: 'CameraPlainVariable';
-		src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
-		font-weight: 100 900;
-		font-style: normal;
-		font-display: swap;
-	}
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedidos MaisaPig 🐷</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>🐷 Pedidos MaisaPig</h1>
+        <p>Sistema de Gerenciamento de Pedidos</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="label">Total de Pedidos</span>
+          <span class="value" id="total-pedidos">0</span>
+        </div>
+        <div class="stat">
+          <span class="label">Pendentes</span>
+          <span class="value" id="pedidos-pendentes">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-	#lovable-badge {
-		--badge-bg: #1b1b1b;
-		--badge-text: #c5c1b9;
-		--badge-text-hover: #dcdad5;
-		--badge-radius: 6px;
-		--badge-padding: 8px;
-		--badge-gap: 6px;
-		--badge-shadow: 
-			0 0 0 1px rgba(0, 0, 0, 0.88),
-			0 1px 0 0 rgba(0, 0, 0, 0.04),
-			0 2px 2px -1px rgba(0, 0, 0, 0.08),
-			0 4px 4px -2px rgba(0, 0, 0, 0.08),
-			0 8px 8px -4px rgba(0, 0, 0, 0.08),
-			0 16px 16px -8px rgba(0, 0, 0, 0.08);
-		--badge-transition-duration: 0.2s;
-		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
-		--focus-color: #575ECF;
-		--focus-offset: 2px;
-		--focus-width: 2px;
-		
-		position: fixed;
-		bottom: 12px;
-		right: 12px;
-		height: 24px;
-		display: flex;
-		align-items: center;
-		z-index: 1000000;
-		background-color: var(--badge-bg);
-		color: var(--badge-text);
-		border-radius: var(--badge-radius);
-		box-shadow: var(--badge-shadow);
-		font-size: 12px;
-		font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		font-weight: 400 !important;
-		text-transform: none !important;
-		font-feature-settings: normal !important;
-		transform: translateZ(0);
-		will-change: transform, opacity;
-	}
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- SEÇÃO: ADICIONAR PEDIDO -->
+      <section class="secao-adicionar">
+        <h2>➕ Adicionar Novo Pedido</h2>
+        <div class="formulario">
+          <div class="form-group">
+            <label>Nome do Cliente</label>
+            <input 
+              type="text" 
+              id="cliente-input" 
+              placeholder="Ex: Wesley gi"
+              autocomplete="off"
+            >
+          </div>
 
-	#lovable-badge-cta {
-		display: flex;
-		align-items: center;
-		gap: var(--badge-gap);
-		padding: 0 var(--badge-padding);
-		height: 100%;
-		color: inherit;
-		text-decoration: none;
-		white-space: nowrap;
-		border-radius: var(--badge-radius) 0 0 var(--badge-radius);
-		transition: 
-			background-color var(--badge-transition-duration) ease,
-			color var(--badge-transition-duration) ease,
-			transform 0.1s ease;
-	}
+          <div class="form-group">
+            <label>Itens do Pedido</label>
+            <textarea 
+              id="itens-input" 
+              placeholder="Ex: 40 kg banha"
+              rows="3"
+            ></textarea>
+          </div>
 
-	#lovable-badge-cta:hover {
-		background: rgba(255, 255, 255, 0.04);
-		color: var(--badge-text-hover);
-	}
+          <div class="form-group">
+            <label>Prazo de Entrega</label>
+            <input 
+              type="text" 
+              id="prazo-input" 
+              placeholder="Ex: 7 dias"
+            >
+          </div>
 
-	#lovable-badge-cta:active {
-		transform: scale(0.98);
-	}
+          <button class="btn btn-primary" onclick="adicionarPedidoUI()">
+            💾 Salvar Pedido
+          </button>
+          <p class="dica">💡 Dica: Pressione <kbd>Ctrl + Enter</kbd> para salvar</p>
+        </div>
+      </section>
 
-	#lovable-badge-cta:focus {
-		outline: none;
-	}
+      <!-- SEÇÃO: FILTROS -->
+      <section class="secao-filtros">
+        <h2>🔍 Filtrar Pedidos</h2>
+        <div class="filtros">
+          <button class="filtro ativo" onclick="pedidosApp.aplicarFiltro('todos'); atualizarFiltros('todos')">
+            Todos (0)
+          </button>
+          <button class="filtro" onclick="pedidosApp.aplicarFiltro('pendente'); atualizarFiltros('pendente')">
+            Pendente (0)
+          </button>
+          <button class="filtro" onclick="pedidosApp.aplicarFiltro('pesado'); atualizarFiltros('pesado')">
+            Pesado (0)
+          </button>
+          <button class="filtro" onclick="pedidosApp.aplicarFiltro('nota'); atualizarFiltros('nota')">
+            Nota Emitida (0)
+          </button>
+          <button class="filtro" onclick="pedidosApp.aplicarFiltro('enviado'); atualizarFiltros('enviado')">
+            Enviado (0)
+          </button>
+        </div>
+      </section>
 
-	#lovable-badge-cta:focus-visible {
-		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: var(--focus-offset);
-		z-index: 1;
-	}
+      <!-- SEÇÃO: LISTA DE PEDIDOS -->
+      <section class="secao-pedidos">
+        <h2>📋 Pedidos</h2>
+        <div id="pedidos-container">
+          <p class="vazio">📭 Nenhum pedido ainda. Adicione um acima!</p>
+        </div>
+      </section>
 
-	#lovable-badge-text {
-		line-height: 1;
-	}
+      <!-- SEÇÃO: INFO DE PROTEÇÃO -->
+      <section class="secao-info">
+        <div class="info-box">
+          <h3>🔒 Sistema de Proteção Ativado</h3>
+          <p>
+            <strong>✅ Dados Persistem:</strong> Seus pedidos são salvos automaticamente no navegador (localStorage)
+          </p>
+          <p>
+            <strong>💳 Pagamento para Deletar:</strong> Custa R$ 5,00 deletar um pedido (proteção contra exclusão acidental)
+          </p>
+          <p>
+            <strong>✈️ Integração Futura:</strong> Em breve: PIX, Cartão de Crédito e outros métodos de pagamento
+          </p>
+          <p>
+            <strong>📊 Histórico:</strong> Todos os pedidos e pagamentos são mantidos em histórico
+          </p>
+        </div>
+      </section>
 
-	#lovable-badge-divider {
-		width: 1px;
-		height: 24px;
-		background-color: rgba(255, 255, 255, 0.04);
-		flex-shrink: 0;
-	}
+    </div>
+  </main>
 
-	#lovable-badge-close {
-		width: 24px;
-		height: 24px;
-		min-width: 24px;
-		min-height: 24px;
-		cursor: pointer;
-		background: none;
-		border: none;
-		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
-		flex-shrink: 0;
-		transition: 
-			background-color var(--badge-transition-duration) ease,
-			transform 0.1s ease;
-	}
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Pedidos MaisaPig - Desenvolvido com ❤️</p>
+  </footer>
 
-	#lovable-badge-close:hover {
-		background: rgba(255, 255, 255, 0.04);
-	}
+  <!-- SCRIPTS -->
+  <script src="app.js"></script>
+  <script>
+    // Função para adicionar pedido via UI
+    function adicionarPedidoUI() {
+      const cliente = document.getElementById('cliente-input').value;
+      const itens = document.getElementById('itens-input').value;
+      const prazo = document.getElementById('prazo-input').value;
 
-	#lovable-badge-close:active {
-		transform: scale(0.92);
-	}
+      if (!cliente || !itens || !prazo) {
+        alert('⚠️ Por favor, preencha todos os campos!');
+        return;
+      }
 
-	#lovable-badge-close:focus {
-		outline: none;
-	}
+      pedidosApp.adicionarPedido(cliente, itens, prazo);
+      
+      // Limpar formulário
+      document.getElementById('cliente-input').value = '';
+      document.getElementById('itens-input').value = '';
+      document.getElementById('prazo-input').value = '';
+      document.getElementById('cliente-input').focus();
 
-	#lovable-badge-close:focus-visible {
-		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: calc(var(--focus-offset) * -1);
-		z-index: 1;
-	}
+      atualizarContadores();
+      alert('✅ Pedido salvo com sucesso!');
+    }
 
-	#lovable-badge-close svg path {
-		fill: var(--badge-text);
-		transition: fill var(--badge-transition-duration) ease;
-	}
+    // Atualizar contadores
+    function atualizarContadores() {
+      const total = pedidosApp.pedidos.length;
+      const pendentes = pedidosApp.pedidos.filter(p => p.status === 'pendente').length;
+      
+      document.getElementById('total-pedidos').textContent = total;
+      document.getElementById('pedidos-pendentes').textContent = pendentes;
+    }
 
-	#lovable-badge-close:hover svg path {
-		fill: var(--badge-text-hover);
-	}
+    // Atualizar visual dos filtros
+    function atualizarFiltros(filtro) {
+      document.querySelectorAll('.filtro').forEach(btn => {
+        btn.classList.remove('ativo');
+      });
+      event.target.classList.add('ativo');
+    }
 
-	@media (prefers-reduced-motion: reduce) {
-		#lovable-badge-cta,
-		#lovable-badge-close,
-		#lovable-badge-close svg path {
-			transition: none;
-		}
-		
-		#lovable-badge-cta:active,
-		#lovable-badge-close:active {
-			transform: none;
-		}
-	}
+    // Atalho de teclado: Ctrl + Enter para salvar
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.key === 'Enter') {
+        adicionarPedidoUI();
+      }
+    });
 
-	@media (prefers-contrast: high) {
-		#lovable-badge {
-			--badge-bg: #000;
-			--badge-text: #fff;
-			--badge-text-hover: #fff;
-			border: 2px solid currentColor;
-		}
-		
-		#lovable-badge-cta:focus-visible,
-		#lovable-badge-close:focus-visible {
-			outline-width: 3px;
-		}
-	}
-</style>
-<script defer="" src="./Pedidos MaisaPig — Cole e organize_files/_flock.js.download" data-proxy-url="/~api/analytics"></script><meta id="dcngeagmmhegagicpcmpinaoklddcgon"></head><body><!--$--><div class="min-h-screen bg-gradient-to-br from-rose-50 via-white to-amber-50"><header class="border-b border-rose-200/60 bg-white/90 backdrop-blur sticky top-0 z-10"><div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3"><div class="h-10 w-10 rounded-xl bg-gradient-to-br from-rose-600 to-red-700 flex items-center justify-center shadow-md shadow-rose-600/30"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-beef h-5 w-5 text-white" aria-hidden="true"><path d="M16.4 13.7A6.5 6.5 0 1 0 6.28 6.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3"></path><path d="m18.5 6 2.19 4.5a6.48 6.48 0 0 1-2.29 7.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5"></path><circle cx="12.5" cy="8.5" r="2.5"></circle></svg></div><div class="flex-1 min-w-0"><h1 class="text-lg font-bold text-rose-900 leading-tight">Pedidos MaisaPig</h1><p class="text-[11px] text-rose-700/70">Cole os pedidos do WhatsApp aqui</p></div><div class="text-right"><p class="text-[10px] uppercase tracking-wider text-rose-700/70 font-semibold">Hoje</p><p class="text-base font-bold text-rose-700">1</p></div></div></header><main class="max-w-6xl mx-auto px-4 py-5 space-y-5"><div class="flex gap-1 border-b border-rose-200"><button type="button" class="px-4 py-2 text-sm font-semibold rounded-t-lg transition border-b-2 -mb-px bg-white text-rose-800 border-rose-700">Pedidos (<!-- -->1<!-- -->)</button><button type="button" class="px-4 py-2 text-sm font-semibold rounded-t-lg transition border-b-2 -mb-px flex items-center gap-1.5 bg-transparent text-orange-600 border-transparent hover:text-orange-800"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-x h-4 w-4" aria-hidden="true"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.27 9 5.15"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" x2="12" y1="22" y2="12"></line><path d="m17 13 5 5m-5 0 5-5"></path></svg>Sem estoque (<!-- -->0<!-- -->)</button></div><div class="rounded-xl border bg-card text-card-foreground p-4 border-rose-200 shadow-md"><div class="flex items-center justify-between mb-2"><label class="text-sm font-semibold text-rose-900 flex items-center gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-paste h-4 w-4" aria-hidden="true"><path d="M11 14h10"></path><path d="M16 4h2a2 2 0 0 1 2 2v1.344"></path><path d="m17 18 4-4-4-4"></path><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113"></path><rect x="8" y="2" width="8" height="4" rx="1"></rect></svg>Colar pedido do WhatsApp</label><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md px-3 h-7 text-xs text-rose-700" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-paste h-3.5 w-3.5" aria-hidden="true"><path d="M11 14h10"></path><path d="M16 4h2a2 2 0 0 1 2 2v1.344"></path><path d="m17 18 4-4-4-4"></path><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113"></path><rect x="8" y="2" width="8" height="4" rx="1"></rect></svg>Colar e salvar</button></div><textarea class="flex min-h-[60px] w-full rounded-md border border-input px-3 py-2 shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm resize-y font-mono text-sm leading-relaxed bg-rose-50/40" placeholder="Ex:
-Karla Maricelly Peres Fonseca
-10kg toucinho picado
-7 dias - eliane" rows="5"></textarea><div class="flex items-center justify-between mt-2 gap-2"><p class="text-[11px] text-muted-foreground">Dica: <kbd class="px-1 bg-rose-100 rounded">Ctrl</kbd>+<kbd class="px-1 bg-rose-100 rounded">Enter</kbd> pra salvar</p><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-primary/90 px-4 py-2 bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-700 hover:to-red-800 text-white font-semibold h-9 shadow-md shadow-rose-600/20" disabled="">Salvar pedido</button></div></div><div class="flex flex-wrap items-center gap-2"><button class="px-3 py-1.5 rounded-full text-xs font-semibold border transition bg-rose-700 text-white border-rose-700">Todos (1)</button><button class="px-3 py-1.5 rounded-full text-xs font-semibold border transition bg-white text-rose-900 border-rose-200 hover:border-rose-400">Pendente (1)</button><button class="px-3 py-1.5 rounded-full text-xs font-semibold border transition bg-white text-rose-900 border-rose-200 hover:border-rose-400">Pesado (0)</button><button class="px-3 py-1.5 rounded-full text-xs font-semibold border transition bg-white text-rose-900 border-rose-200 hover:border-rose-400">Nota Emitida (0)</button><button class="px-3 py-1.5 rounded-full text-xs font-semibold border transition bg-white text-rose-900 border-rose-200 hover:border-rose-400">Enviado (0)</button><div class="relative w-full sm:w-auto sm:ml-auto flex gap-2"><div class="relative flex-1 sm:flex-none"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><input class="flex w-full rounded-md border border-input px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-8 h-9 sm:w-64 bg-white" placeholder="Buscar (cliente, item...)" value=""></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow px-4 py-2 h-9 bg-rose-700 hover:bg-rose-800 text-white" type="button" title="Imprimir pedidos exibidos"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer h-4 w-4" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path><rect x="6" y="14" width="12" height="8" rx="1"></rect></svg>Imprimir</button></div></div><div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><div class="rounded-xl text-card-foreground shadow p-3 border-2 transition group bg-red-100 border-red-400 hover:border-red-600"><div class="flex items-start justify-between gap-2 mb-2"><h3 class="font-bold text-rose-900 leading-tight text-sm flex-1 break-words">açougue quinta - Wesley gi</h3><span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full whitespace-nowrap bg-red-200 text-red-800">Pendente</span></div><div class="text-sm text-rose-950/90 leading-relaxed break-words mb-2"><div class="whitespace-pre-wrap"><span class="bg-emerald-100 text-emerald-800 font-bold px-1 rounded">40 kg</span><span> banha</span></div></div><div class="text-[10px] text-muted-foreground mb-2">27/05, 12:13</div><div class="flex items-center gap-1 pt-2 border-t border-rose-200/60"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground rounded-md h-7 text-[11px] text-amber-700 hover:bg-amber-100 px-2">Pesado</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground rounded-md h-7 text-[11px] text-blue-700 hover:bg-blue-100 px-2">Nota</button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground rounded-md h-7 text-[11px] text-emerald-700 hover:bg-emerald-100 px-2">Enviado</button><div class="ml-auto flex items-center"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground h-7 w-7 text-rose-700 hover:bg-rose-100" title="Copiar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-3.5 w-3.5" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground h-7 w-7 text-rose-700 hover:bg-rose-100" title="Editar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil h-3.5 w-3.5" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></button><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-7 w-7 text-rose-600 hover:text-rose-800 hover:bg-rose-100" title="Excluir"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2 lucide-trash-2 h-3.5 w-3.5" aria-hidden="true"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></button></div></div></div></div></main></div><!--/$-->
-<aside id="lovable-badge" role="complementary" dir="ltr" lang="en" aria-label="Edit with Lovable">
-	<a id="lovable-badge-cta" target="_blank" href="https://lovable.dev/projects/f65a7da0-e121-41a9-842a-e55854f1971a?utm_source=lovable-badge" rel="noopener nofollow" aria-label="Edit with Lovable">
-		<span id="lovable-badge-text">Edit with</span>
-		<svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">
-  <path fill="#FCFBF8" fill-rule="evenodd" d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z" clip-rule="evenodd"></path>
-  <path fill="#FCFBF8" d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z"></path>
-  <path fill="url(#a)" fill-rule="evenodd" d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z" clip-rule="evenodd"></path>
-  <defs>
-    <radialgradient id="a" cx="0" cy="0" r="1" gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)" gradientUnits="userSpaceOnUse">
-      <stop offset=".106" stop-color="#FE7B02"></stop>
-      <stop offset=".394" stop-color="#FE3F21"></stop>
-      <stop offset=".608" stop-color="#F858BC"></stop>
-      <stop offset=".929" stop-color="#575ECF"></stop>
-    </radialgradient>
-  </defs>
-</svg>
+    // Atualizar contadores ao carregar
+    setTimeout(atualizarContadores, 500);
+  </script>
 
+  <style>
+    /* ========== LAYOUT GERAL ========== */
+    .header {
+      background: linear-gradient(135deg, #dc2626, #ea580c);
+      color: white;
+      padding: 24px 0;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+    }
 
-	</a>
-	
-	<span id="lovable-badge-divider" aria-hidden="true"></span>
-	
-	<button id="lovable-badge-close" aria-label="Dismiss" title="Dismiss" type="button">
-		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">
-			<path d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z"></path>
-		</svg>
-	</button>
-</aside>
-<script>
-	// Don't show the lovable-badge if the page is in an iframe or if it's being rendered by puppeteer (screenshot service)
-	if (window.self !== window.top || navigator.userAgent.includes('puppeteer')) {
-		// the page is in an iframe
-		var badge = document.getElementById('lovable-badge');
-		if (badge) {
-			badge.style.display = 'none';
-		}
-	}
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-	// Add click event listener to close button with animation
-	var closeButton = document.getElementById('lovable-badge-close');
-	if (closeButton) {
-		closeButton.addEventListener('click', function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			var badge = document.getElementById('lovable-badge');
-			if (badge) {
-				badge.classList.add('closing');
-				setTimeout(function() {
-					if (badge) {
-						badge.style.display = 'none';
-					}
-				}, 240);
-			}
-		});
-	}
-</script>
-</body></html>
+    .logo h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .logo p {
+      font-size: 13px;
+      opacity: 0.9;
+      margin: 4px 0 0 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 20px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat .label {
+      display: block;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .stat .value {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ========== SECTIONS ========== */
+    .main-content {
+      padding: 40px 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: #7f1d1d;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    /* ========== FORMULÁRIO ========== */
+    .formulario {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      color: #5a1a1a;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 10px 12px;
+      border: 1px solid #fecdd3;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+
+    .dica {
+      font-size: 12px;
+      color: #a0475a;
+      margin-top: 8px;
+    }
+
+    kbd {
+      background: #fecdd3;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* ========== BOTÕES ========== */
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #dc2626, #ea580c);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    }
+
+    /* ========== FILTROS ========== */
+    .filtros {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filtro {
+      padding: 8px 16px;
+      border: 2px solid #fecdd3;
+      background: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #5a1a1a;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .filtro:hover {
+      border-color: #dc2626;
+      background: #fef2f2;
+    }
+
+    .filtro.ativo {
+      background: linear-gradient(135deg, #dc2626, #ea580c);
+      color: white;
+      border-color: #dc2626;
+    }
+
+    /* ========== INFO BOX ========== */
+    .info-box {
+      background: linear-gradient(135deg, #fef2f2, #fff7ed);
+      border: 2px solid #fecdd3;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .info-box h3 {
+      color: #dc2626;
+      margin-bottom: 12px;
+    }
+
+    .info-box p {
+      color: #5a1a1a;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .info-box strong {
+      color: #7f1d1d;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 640px) {
+      .header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .stats {
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      .logo h1 {
+        font-size: 24px;
+      }
+
+      section {
+        padding: 16px;
+      }
+    }
+  </style>
+</body>
+</html>
